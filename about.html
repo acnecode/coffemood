@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас — Coffee Mood</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="theme.js"></script>
+</head>
+
+<body class="bg-cream text-graphite font-sans antialiased">
+
+    <!-- ═══════════════════ ШАПКА ═══════════════════ -->
+    <header class="fixed top-0 inset-x-0 z-50 bg-cream/80 backdrop-blur-md border-b border-espresso/10">
+        <nav class="max-w-6xl mx-auto px-5 h-16 md:h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2.5 group">
+                <!-- SVG-лого: чашка с паром -->
+                <svg class="w-10 h-10 transition-transform group-hover:rotate-6" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                    <circle cx="24" cy="24" r="23" fill="#3B2A20"/>
+                    <path d="M14 22h16v7a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6v-7Z" fill="#F5EFE6"/>
+                    <path d="M30 23h2.5a3.5 3.5 0 1 1 0 7H30" stroke="#F5EFE6" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M19 12c-1.5 2 1.5 3 0 5M24 12c-1.5 2 1.5 3 0 5" stroke="#C8A97E" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                <span class="font-serif text-xl md:text-2xl font-semibold tracking-tight text-espresso">Coffee&nbsp;Mood</span>
+            </a>
+
+            <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <li><a href="menu.html"     data-nav="menu"     class="nav-link hover:text-mocha transition-colors relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-caramel hover:after:w-full after:transition-all">Меню</a></li>
+                <li><a href="about.html"    data-nav="about"    class="nav-link hover:text-mocha transition-colors relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-caramel hover:after:w-full after:transition-all">О нас</a></li>
+                <li><a href="contacts.html" data-nav="contacts" class="nav-link hover:text-mocha transition-colors relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-caramel hover:after:w-full after:transition-all">Контакты</a></li>
+            </ul>
+
+            <div class="flex items-center gap-3">
+                <a href="menu.html" class="hidden sm:inline-flex items-center gap-2 bg-espresso text-cream text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-mocha transition-colors">
+                    Заказать
+                    <span id="cart-badge" class="hidden min-w-[1.25rem] h-5 px-1 rounded-full bg-caramel text-espresso text-xs font-bold items-center justify-center">0</span>
+                </a>
+                <button id="burger" aria-label="Открыть меню" class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5">
+                    <span class="burger-line block w-6 h-0.5 bg-espresso transition-all"></span>
+                    <span class="burger-line block w-6 h-0.5 bg-espresso transition-all"></span>
+                    <span class="burger-line block w-6 h-0.5 bg-espresso transition-all"></span>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="md:hidden hidden border-t border-espresso/10 bg-cream">
+            <ul class="px-5 py-4 space-y-3 text-base font-medium">
+                <li><a href="menu.html"     class="block py-2 hover:text-mocha transition-colors">Меню</a></li>
+                <li><a href="about.html"    class="block py-2 hover:text-mocha transition-colors">О нас</a></li>
+                <li><a href="contacts.html" class="block py-2 hover:text-mocha transition-colors">Контакты</a></li>
+                <li><a href="menu.html"     class="inline-flex bg-espresso text-cream px-6 py-2.5 rounded-full font-semibold mt-1">Заказать</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ═══════════════════ ЗАГОЛОВОК СТРАНИЦЫ ═══════════════════ -->
+    <section class="pt-32 md:pt-40 pb-12 bg-gradient-to-b from-latte to-cream">
+        <div class="max-w-6xl mx-auto px-5 text-center">
+            <p class="text-xs md:text-sm font-semibold tracking-[0.25em] uppercase text-mocha mb-3">Наша история</p>
+            <h1 class="font-serif text-4xl md:text-6xl font-bold text-espresso mb-4">Кофе — это ремесло.<br class="hidden sm:block"> И немного магии.</h1>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ ИСТОРИЯ ═══════════════════ -->
+    <section class="py-12 md:py-16">
+        <div class="max-w-3xl mx-auto px-5">
+            <p class="font-serif text-xl md:text-2xl text-espresso leading-relaxed mb-8 first-letter:text-5xl first-letter:font-bold first-letter:text-mocha first-letter:float-left first-letter:mr-3 first-letter:leading-none">
+                Coffee Mood родился из простой мысли: в городе не хватает места, где время замедляется. Где можно сесть у окна с чашкой капучино, смотреть на дождь и никуда не спешить.
+            </p>
+            <p class="text-graphite/70 leading-relaxed mb-6">
+                Мы обжариваем зерно небольшими партиями каждую неделю, чтобы в вашей чашке всегда раскрывался живой, объёмный вкус — с нотами карамели, какао и спелых ягод. Зерно приезжает к нам напрямую с ферм Эфиопии и Бразилии: мы знаем людей, которые его выращивают, и платим им честную цену.
+            </p>
+            <p class="text-graphite/70 leading-relaxed">
+                А ещё у нас тёплый свет, запах свежемолотого зерна, тихая музыка и бариста, которые помнят ваш любимый напиток. Заходите как домой.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ ЦЕННОСТИ ═══════════════════ -->
+    <section class="py-16 md:py-24 bg-espresso text-cream relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-72 h-72 rounded-full bg-caramel/10 blur-3xl"></div>
+        <div class="max-w-6xl mx-auto px-5 relative">
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-center mb-12">На чём мы стоим</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div class="bg-cream/5 border border-cream/10 rounded-3xl p-6 backdrop-blur-sm">
+                    <span class="text-3xl" aria-hidden="true">🔥</span>
+                    <h3 class="font-serif text-lg font-semibold mt-3 mb-1">Свежая обжарка</h3>
+                    <p class="text-sm text-cream/60">Небольшими партиями, каждую неделю — зерно не успевает состариться</p>
+                </div>
+                <div class="bg-cream/5 border border-cream/10 rounded-3xl p-6 backdrop-blur-sm">
+                    <span class="text-3xl" aria-hidden="true">🌿</span>
+                    <h3 class="font-serif text-lg font-semibold mt-3 mb-1">Честное зерно</h3>
+                    <p class="text-sm text-cream/60">Прямые поставки с ферм Эфиопии и Бразилии, честная цена фермерам</p>
+                </div>
+                <div class="bg-cream/5 border border-cream/10 rounded-3xl p-6 backdrop-blur-sm">
+                    <span class="text-3xl" aria-hidden="true">🛋️</span>
+                    <h3 class="font-serif text-lg font-semibold mt-3 mb-1">Атмосфера</h3>
+                    <p class="text-sm text-cream/60">Мягкий свет, пледы и розетки у каждого столика</p>
+                </div>
+                <div class="bg-cream/5 border border-cream/10 rounded-3xl p-6 backdrop-blur-sm">
+                    <span class="text-3xl" aria-hidden="true">🥐</span>
+                    <h3 class="font-serif text-lg font-semibold mt-3 mb-1">Своя выпечка</h3>
+                    <p class="text-sm text-cream/60">Круассаны и десерты из нашей пекарни — каждое утро</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ ЦИФРЫ ═══════════════════ -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-6xl mx-auto px-5 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div><p class="font-serif text-4xl md:text-5xl font-bold text-espresso mb-2">2019</p><p class="text-sm text-graphite/60">год основания</p></div>
+            <div><p class="font-serif text-4xl md:text-5xl font-bold text-espresso mb-2">12+</p><p class="text-sm text-graphite/60">сортов зерна</p></div>
+            <div><p class="font-serif text-4xl md:text-5xl font-bold text-espresso mb-2">50 000</p><p class="text-sm text-graphite/60">чашек в год</p></div>
+            <div><p class="font-serif text-4xl md:text-5xl font-bold text-espresso mb-2">★ 4.9</p><p class="text-sm text-graphite/60">рейтинг гостей</p></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ CTA ═══════════════════ -->
+    <section class="pb-20 md:pb-28">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="bg-latte rounded-[2.5rem] px-8 py-14 md:px-16 md:py-16 text-center">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-espresso mb-4">Убедитесь сами</h2>
+                <p class="text-graphite/60 max-w-md mx-auto mb-8">Лучший способ узнать нас — попробовать наш кофе.</p>
+                <a href="menu.html" class="inline-flex items-center gap-2 bg-espresso text-cream font-semibold px-8 py-4 rounded-full hover:bg-mocha hover:gap-3 transition-all shadow-lg shadow-espresso/20">
+                    Смотреть меню <span aria-hidden="true">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div data-include="footer"></div>
+    <script src="app.js"></script>
+</body>
+</html>

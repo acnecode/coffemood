@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню — Coffee Mood</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="theme.js"></script>
+
+    <style>
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .card-anim { animation: fadeUp .45s ease both; }
+        .card-anim:nth-child(2) { animation-delay: .08s; }
+        .card-anim:nth-child(3) { animation-delay: .16s; }
+        .card-anim:nth-child(4) { animation-delay: .24s; }
+    </style>
+</head>
+
+<body class="bg-cream text-graphite font-sans antialiased">
+
+    <!-- ═══════════════════ ШАПКА ═══════════════════ -->
+    <header class="fixed top-0 inset-x-0 z-50 bg-cream/80 backdrop-blur-md border-b border-espresso/10">
+        <nav class="max-w-6xl mx-auto px-5 h-16 md:h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2.5 group">
+                <!-- SVG-лого: чашка с паром -->
+                <svg class="w-10 h-10 transition-transform group-hover:rotate-6" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                    <circle cx="24" cy="24" r="23" fill="#3B2A20"/>
+                    <path d="M14 22h16v7a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6v-7Z" fill="#F5EFE6"/>
+                    <path d="M30 23h2.5a3.5 3.5 0 1 1 0 7H30" stroke="#F5EFE6" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M19 12c-1.5 2 1.5 3 0 5M24 12c-1.5 2 1.5 3 0 5" stroke="#C8A97E" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                <span class="font-serif text-xl md:text-2xl font-semibold tracking-tight text-espresso">Coffee&nbsp;Mood</span>
+            </a>
+
+            <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <li><a href="menu.html"     data-nav="menu"     class="nav-link hover:text-mocha transition-colors relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-caramel hover:after:w-full after:transition-all">Меню</a></li>
+                <li><a href="about.html"    data-nav="about"    class="nav-link hover:text-mocha transition-colors relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-caramel hover:after:w-full after:transition-all">О нас</a></li>
+                <li><a href="contacts.html" data-nav="contacts" class="nav-link hover:text-mocha transition-colors relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-caramel hover:after:w-full after:transition-all">Контакты</a></li>
+            </ul>
+
+            <div class="flex items-center gap-3">
+                <a href="menu.html" class="hidden sm:inline-flex items-center gap-2 bg-espresso text-cream text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-mocha transition-colors">
+                    Заказать
+                    <span id="cart-badge" class="hidden min-w-[1.25rem] h-5 px-1 rounded-full bg-caramel text-espresso text-xs font-bold items-center justify-center">0</span>
+                </a>
+                <button id="burger" aria-label="Открыть меню" class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5">
+                    <span class="burger-line block w-6 h-0.5 bg-espresso transition-all"></span>
+                    <span class="burger-line block w-6 h-0.5 bg-espresso transition-all"></span>
+                    <span class="burger-line block w-6 h-0.5 bg-espresso transition-all"></span>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="md:hidden hidden border-t border-espresso/10 bg-cream">
+            <ul class="px-5 py-4 space-y-3 text-base font-medium">
+                <li><a href="menu.html"     class="block py-2 hover:text-mocha transition-colors">Меню</a></li>
+                <li><a href="about.html"    class="block py-2 hover:text-mocha transition-colors">О нас</a></li>
+                <li><a href="contacts.html" class="block py-2 hover:text-mocha transition-colors">Контакты</a></li>
+                <li><a href="menu.html"     class="inline-flex bg-espresso text-cream px-6 py-2.5 rounded-full font-semibold mt-1">Заказать</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ═══════════════════ ЗАГОЛОВОК СТРАНИЦЫ ═══════════════════ -->
+    <section class="pt-32 md:pt-40 pb-12 bg-gradient-to-b from-latte to-cream">
+        <div class="max-w-6xl mx-auto px-5 text-center">
+            <p class="text-xs md:text-sm font-semibold tracking-[0.25em] uppercase text-mocha mb-3">Что попробовать</p>
+            <h1 class="font-serif text-4xl md:text-6xl font-bold text-espresso mb-4">Наше меню</h1>
+            <p class="text-graphite/60 max-w-lg mx-auto">Каждый напиток готовим на зерне свежей обжарки, а десерты печём сами — каждое утро.</p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ МЕНЮ С ВКЛАДКАМИ ═══════════════════ -->
+    <section class="pb-20 md:pb-28">
+        <div class="max-w-6xl mx-auto px-5">
+            <!-- Вкладки -->
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex flex-wrap justify-center gap-1 bg-latte/70 p-1.5 rounded-full">
+                    <button data-tab="coffee"   class="tab-btn px-5 md:px-7 py-2.5 rounded-full text-sm font-semibold transition-all">Кофе</button>
+                    <button data-tab="seasonal" class="tab-btn px-5 md:px-7 py-2.5 rounded-full text-sm font-semibold transition-all">Сезонные напитки</button>
+                    <button data-tab="desserts" class="tab-btn px-5 md:px-7 py-2.5 rounded-full text-sm font-semibold transition-all">Десерты</button>
+                </div>
+            </div>
+
+            <!-- Сетка карточек -->
+            <div id="menu-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6"></div>
+        </div>
+    </section>
+
+    <div data-include="footer"></div>
+    <script src="app.js"></script>
+
+    <script>
+        /* ---------- Данные меню (с фото) ---------- */
+        const MENU = {
+            coffee: [
+                { img: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=600&q=70', name: 'Эспрессо',      desc: 'Плотный шот с бархатной крема́ и нотами тёмного шоколада.', price: 190 },
+                { img: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=70', name: 'Капучино',      desc: 'Нежная молочная пена и мягкая карамельная сладость зерна.', price: 280 },
+                { img: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600&q=70', name: 'Раф ванильный', desc: 'Сливочный, тёплый и обволакивающий — как плед в чашке.', price: 340 },
+                { img: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=70', name: 'Колд брю',      desc: '16 часов холодной экстракции: чистый вкус и лёгкая ягодность.', price: 310 },
+            ],
+            seasonal: [
+                { img: 'https://images.unsplash.com/photo-1447078806655-40579c2520d6?auto=format&fit=crop&w=600&q=70', name: 'Тыквенный латте',   desc: 'Пряный сироп, корица и мускат — вкус уютной осени.', price: 360 },
+                { img: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=70', name: 'Вишнёвый капучино', desc: 'Спелая вишня и молочная пена — дерзко и нежно одновременно.', price: 350 },
+                { img: 'https://images.unsplash.com/photo-1485808191679-5f86510681a2?auto=format&fit=crop&w=600&q=70', name: 'Медовый флэт уайт', desc: 'Цветочный мёд и двойной шот — сладость без лишнего.', price: 330 },
+                { img: 'https://images.unsplash.com/photo-1542990253-a781e04c0082?auto=format&fit=crop&w=600&q=70', name: 'Мятный какао',      desc: 'Бельгийский шоколад со свежей мятой и маршмеллоу.', price: 320 },
+            ],
+            desserts: [
+                { img: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=70', name: 'Круассан', desc: 'Хрустящий, слоёный, на французском масле. Ещё тёплый.', price: 220 },
+                { img: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=70', name: 'Чизкейк',  desc: 'Классический нью-йорк на песочной основе с солёной карамелью.', price: 320 },
+                { img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=70', name: 'Брауни',   desc: 'Влажный шоколадный, с грецким орехом и щепоткой соли.', price: 260 },
+                { img: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=600&q=70', name: 'Тирамису', desc: 'Савоярди, пропитанные нашим эспрессо, и облако маскарпоне.', price: 350 },
+            ],
+        };
+
+        /* ---------- Вкладки ---------- */
+        const grid = document.getElementById('menu-grid');
+        const tabs = document.querySelectorAll('.tab-btn');
+
+        function renderTab(key) {
+            grid.innerHTML = MENU[key].map(item => `
+                <article class="card-anim group bg-white rounded-3xl overflow-hidden border border-espresso/5 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col">
+                    <div class="h-44 overflow-hidden relative">
+                        <img src="${item.img}" alt="${item.name}" loading="lazy"
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <span class="absolute top-3 right-3 bg-cream/90 backdrop-blur-sm text-espresso font-serif font-bold text-sm px-3 py-1.5 rounded-full shadow-sm">${item.price} ₽</span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-serif text-xl font-semibold text-espresso mb-2">${item.name}</h3>
+                        <p class="text-sm text-graphite/60 leading-relaxed mb-5 flex-1">${item.desc}</p>
+                        <button class="add-to-cart w-full bg-espresso text-cream text-sm font-semibold px-4 py-2.5 rounded-full hover:bg-caramel hover:text-espresso transition-colors">В корзину</button>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function activateTab(btn) {
+            tabs.forEach(t => {
+                t.classList.remove('bg-espresso', 'text-cream', 'shadow-md');
+                t.classList.add('text-espresso/60', 'hover:text-espresso');
+            });
+            btn.classList.add('bg-espresso', 'text-cream', 'shadow-md');
+            btn.classList.remove('text-espresso/60', 'hover:text-espresso');
+            renderTab(btn.dataset.tab);
+        }
+
+        tabs.forEach(btn => btn.addEventListener('click', () => activateTab(btn)));
+        activateTab(tabs[0]); // вкладка по умолчанию
+    </script>
+</body>
+</html>
